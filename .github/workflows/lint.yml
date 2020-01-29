@@ -6,13 +6,13 @@ jobs:
   lint:
     runs-on: ubuntu-latest
     steps:
-      working-directory: ${{ github.workspace }}
       - uses: actions/checkout@v2
       - name: Use Node.js 12
         uses: actions/setup-node@v1
         with:
           node-version: 12
       - name: install and lint
+        working-directory: ${{ github.workspace }}
         run: |
           yarn install
           yarn lint
